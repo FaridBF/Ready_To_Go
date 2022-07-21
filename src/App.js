@@ -1,25 +1,73 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
-function App() {
+const Apps = () => {
+  const [switch1, setSwitch1] = useState(false);
+  const [switch2, setSwitch2] = useState(false);
+  const [switch3, setSwitch3] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <button
+        style={{
+          color: switch1 && switch2 && switch3 === true ? 'green' : 'red'
+        }}
+      >
+        {switch1 === true && switch2 === true && switch3 === true ? (
+          <p>go</p>
+        ) : (
+          <p>no way</p>
+        )}
+      </button>
+      <button
+        className='button1'
+        onClick={() => {
+          setSwitch1(true);
+        }}
+      >
+        ON
+      </button>
+      <button
+        className='button1'
+        onClick={() => {
+          setSwitch2(true);
+        }}
+      >
+        ON
+      </button>
+      <button
+        className='button1'
+        onClick={() => {
+          setSwitch3(true);
+        }}
+      >
+        ON
+      </button>
+      <button
+        className='button2'
+        onClick={() => {
+          setSwitch1(false);
+        }}
+      >
+        OFF
+      </button>
+      <button
+        className='button2'
+        onClick={() => {
+          setSwitch2(false);
+        }}
+      >
+        OFF
+      </button>
+      <button
+        className='button2'
+        onClick={() => {
+          setSwitch3(false);
+        }}
+      >
+        OFF
+      </button>
     </div>
   );
-}
+};
 
-export default App;
+export default Apps;
